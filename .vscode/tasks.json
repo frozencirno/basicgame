@@ -1,0 +1,44 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "Raylib build",
+            "command": "C:/msys64/mingw64/bin/gcc.exe",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "${workspaceFolder}/src/main.c",
+                "-o",
+                "${workspaceFolder}/bin/main.exe",
+                "-I", "C:/msys64/mingw64/include",
+                "-L", "C:/msys64/mingw64/lib",
+                "-lraylib",
+                "-lwinmm",
+                "-lgdi32",
+                "-lopengl32"
+            ],
+            "options": {
+                "cwd": "C:/msys64/mingw64/bin"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "compiler: C:/msys64/mingw64/bin/gcc.exe"
+        },
+		{
+			"label": "Run Program",
+			"type": "shell",
+			"command": "${workspaceFolder}/bin/main.exe",
+			"dependsOn": ["Raylib build"],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		}
+    ]
+}
